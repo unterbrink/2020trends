@@ -65,10 +65,6 @@ resC <- res %>%
 head(resC)
 summary(resC)
 ```
-
-
-
-
           date                          hits            geo           
      Min.   :2014-11-02 00:00:00   Min.   : 19.00   Length:810        
      1st Qu.:2016-02-14 00:00:00   1st Qu.: 33.00   Class :character  
@@ -108,6 +104,8 @@ plot<-ggplot(data=resC, aes(x=as.Date(date), y=cent, group=keyword,col=keyword))
 plot
 plot + facet_grid(keyword~.)
 ```
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_6_0.png?raw=true)
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_6_1.png?raw=true)
 ```R
 # Encode var for new years -- 1 week pre and post Jan1
 res$weeknum <- week(res$date)
@@ -149,7 +147,7 @@ nyeplot
      Mean   :2014   Mean   : 6.532   Mean   :0.04015  
      3rd Qu.:2017   3rd Qu.:10.000   3rd Qu.:0.00000  
      Max.   :2019   Max.   :12.000   Max.   :1.00000  
-
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_7_1.png?raw=true)
 ```R
 # Regression time
 res2 <- filter(res, year(date) > 2014)
@@ -192,7 +190,8 @@ ggplot(res2, aes(x = date, y = hits, color = keyword)) +
     Residual standard error: 6.32 on 776 degrees of freedom
     Multiple R-squared:  0.831,	Adjusted R-squared:  0.8297 
     F-statistic: 635.9 on 6 and 776 DF,  p-value: < 2.2e-16
-
+    
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_8_1.png?raw=true)
 ```R
 weekplot <- ggplot(data = res, aes(x = as.factor(weeknum), y = hits, fill = keyword)) +
     geom_boxplot()
@@ -204,3 +203,7 @@ monthplot <- ggplot(data = res, aes(x = as.factor(monthnum), y = hits, fill = ke
 monthplot
 monthplot + facet_grid(keyword~.)
 ```
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_9_0.png?raw=true)
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_9_1.png?raw=true)
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_9_2.png?raw=true)
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_9_3.png?raw=true)
