@@ -24,6 +24,7 @@ library(dplyr)
 res <- gtrends(c("gym", "diet", "sleep"), geo = c("GB-ENG"), time = c("today+5-y"), gprop = c("web"), onlyInterest = TRUE)
 plot(res)
 ```
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_2_0.png?raw=true)
 ```R
 # resolution from Google Trends varies by amount of time selected... so, stitch together 2 5-year ranges...
 res5yr <- gtrends(c("gym", "diet", "sleep"), geo = c("GB-ENG"), time = c("2015-01-04 2020-01-05"), gprop = c("web"), onlyInterest = TRUE)
@@ -45,6 +46,7 @@ plot<-ggplot(data=res, aes(x=as.Date(date), y=hits,group=keyword,col=keyword))+
                      expand=c(0,0))
 plot
 ```
+![trend](https://github.com/unterbrink/2020trends/blob/master/graphs/output_4_1.png?raw=true)
 ```R
 # center by keyword, scale
 
